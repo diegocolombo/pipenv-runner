@@ -1,0 +1,11 @@
+ARG PYTHON_VERSION=3.7.4
+FROM cdrx/pyinstaller-windows:python3
+RUN set -x \
+    && python -m pip install --upgrade pip \
+    && pip install pipenv \
+    && echo "wine 'C:\\Python36\\Scripts\\pipenv.exe' \"\$@\"" > /usr/bin/pipenv \
+    && chmod +x /usr/bin/pipenv
+
+ENV WORKON_HOME=Z:\venvs
+
+ENTRYPOINT []
